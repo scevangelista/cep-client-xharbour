@@ -1,5 +1,11 @@
 PROCEDURE main   
+   LOCAL hIniData    := HB_ReadIni( "config.ini" )
+   LOCAL cHost       := LTrim(hIniData["SERVER"]["host"])
+   LOCAL cPort       := LTrim(hIniData["SERVER"]["port"])
+   LOCAL cVersion    := LTrim(hIniData["SERVER"]["version"])
+   local cUrl        := [http://] + cHost + [:] + cPort + [/api/] + cVersion
 
+   
 RETURN
 
 
