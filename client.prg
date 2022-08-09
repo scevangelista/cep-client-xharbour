@@ -39,9 +39,9 @@ PROCEDURE main
    cSendUrl    := cUrl + [/states/country/1058]
    hResponse   := Comunicate(cSendUrl)
    FOR EACH hForeach IN hResponse
-      ?  Hb_AnsiToOem("Código: ") + LTrim(str(hForeach["code"]))                          + " - "
+      ?  Hb_AnsiToOem("Código: ") + LTrim(str(hForeach["code"]))            + " - "
       ?? Hb_AnsiToOem("Nome: ")   + hb_UTF8ToStr(LTrim(hForeach["name"]))   + " - "
-      ?? Hb_AnsiToOem("País: ")   + LTrim(str(hForeach["country_code"]))                  + " - "
+      ?? Hb_AnsiToOem("País: ")   + LTrim(str(hForeach["country_code"]))    + " - "
       ?? Hb_AnsiToOem("Sigla: ")  + LTrim(hForeach["initials"])
    NEXT
    
@@ -49,9 +49,9 @@ PROCEDURE main
    cSendUrl    := cUrl + [/states/33]
    hResponse   := Comunicate(cSendUrl)
    FOR EACH hForeach IN hResponse
-      ?  Hb_AnsiToOem("Código: ") + LTrim(str(hForeach["code"]))                          + " - "
+      ?  Hb_AnsiToOem("Código: ") + LTrim(str(hForeach["code"]))            + " - "
       ?? Hb_AnsiToOem("Nome: ")   + hb_UTF8ToStr(LTrim(hForeach["name"]))   + " - "
-      ?? Hb_AnsiToOem("País: ")   + LTrim(str(hForeach["country_code"]))                  + " - "
+      ?? Hb_AnsiToOem("País: ")   + LTrim(str(hForeach["country_code"]))    + " - "
       ?? Hb_AnsiToOem("Sigla: ")  + LTrim(hForeach["initials"])
    NEXT
 
@@ -63,7 +63,7 @@ PROCEDURE main
    cSendUrl    := cUrl + [/cities]
    hResponse   := Comunicate(cSendUrl)
    FOR EACH hForeach IN hResponse
-      ?  Hb_AnsiToOem("Código: ") + LTrim(str(hForeach["code"]))                          + " - "
+      ?  Hb_AnsiToOem("Código: ") + LTrim(str(hForeach["code"]))            + " - "
       ?? Hb_AnsiToOem("Nome: ")   + hb_UTF8ToStr(LTrim(hForeach["name"]))   + " - "
       ?? Hb_AnsiToOem("Estado: ") + LTrim(str(hForeach["state_code"]))
    NEXT
@@ -72,7 +72,7 @@ PROCEDURE main
    cSendUrl    := cUrl + [/cities/state/52]
    hResponse   := Comunicate(cSendUrl)
    FOR EACH hForeach IN hResponse
-      ?  Hb_AnsiToOem("Código: ") + LTrim(str(hForeach["code"]))                          + " - "
+      ?  Hb_AnsiToOem("Código: ") + LTrim(str(hForeach["code"]))            + " - "
       ?? Hb_AnsiToOem("Nome: ")   + hb_UTF8ToStr(LTrim(hForeach["name"]))   + " - "
       ?? Hb_AnsiToOem("Estado: ") + LTrim(str(hForeach["state_code"]))
    NEXT
@@ -81,7 +81,7 @@ PROCEDURE main
    cSendUrl    := cUrl + [/cities/5221403]
    hResponse   := Comunicate(cSendUrl)
    FOR EACH hForeach IN hResponse
-      ?  Hb_AnsiToOem("Código: ") + LTrim(str(hForeach["code"]))                          + " - "
+      ?  Hb_AnsiToOem("Código: ") + LTrim(str(hForeach["code"]))            + " - "
       ?? Hb_AnsiToOem("Nome: ")   + hb_UTF8ToStr(LTrim(hForeach["name"]))   + " - "
       ?? Hb_AnsiToOem("Estado: ") + LTrim(str(hForeach["state_code"]))
    NEXT
