@@ -3,85 +3,85 @@ PROCEDURE main
    LOCAL cHost       := LTrim(hIniData["SERVER"]["host"])
    LOCAL cPort       := LTrim(hIniData["SERVER"]["port"])
    LOCAL cVersion    := LTrim(hIniData["SERVER"]["version"])
-   local cUrl        := [http://] + cHost + [:] + cPort + [/api/] + cVersion
-   local cSendUrl, hResponse, hForeach, cKey
+   LOCAL cUrl        := [http://] + cHost + [:] + cPort + [/api/] + cVersion
+   LOCAL cSendUrl, hResponse, hForeach, cKey
 
    CLS 
    ? Hb_AnsiToOem("Exemplos de Uso da API CEP")
 
 
    *****************************************
-   ** M骴ulo Pa韘
+   ** M贸dulo Pa铆s
    *****************************************   
-   WaitKey(Hb_AnsiToOem("M骴ulo Pa韘"), "listar os paises")
+   WaitKey(Hb_AnsiToOem("M贸dulo Pa铆s"), "listar os paises")
    cSendUrl    := cUrl + [/countries]
    hResponse   := Comunicate(cSendUrl)
    FOR EACH hForeach IN hResponse
-      ?  Hb_AnsiToOem("C骴igo: ") + LTrim(str(hForeach["code"]))  + " - "
+      ?  Hb_AnsiToOem("C贸digo: ") + LTrim(str(hForeach["code"]))  + " - "
       ?? Hb_AnsiToOem("Nome: ")   + LTrim(hForeach["name"])       + " - "
       ?? Hb_AnsiToOem("Sigla: ")  + LTrim(hForeach["initials"])
    NEXT
 
-   WaitKey(Hb_AnsiToOem("M骴ulo Pa韘"), Hb_AnsiToOem("retornar dados do Pa韘 1058"))
+   WaitKey(Hb_AnsiToOem("M贸dulo Pa铆s"), Hb_AnsiToOem("retornar dados do Pa铆s 1058"))
    cSendUrl    := cUrl + [/countries/1058]
    hResponse   := Comunicate(cSendUrl)
    FOR EACH hForeach IN hResponse
-      ?  Hb_AnsiToOem("C骴igo: ") + LTrim(str(hForeach["code"]))  + " - "
+      ?  Hb_AnsiToOem("C贸digo: ") + LTrim(str(hForeach["code"]))  + " - "
       ?? Hb_AnsiToOem("Nome: ")   + LTrim(hForeach["name"])       + " - "
       ?? Hb_AnsiToOem("Sigla: ")  + LTrim(hForeach["initials"])
    NEXT
    
 
    *****************************************
-   ** M骴ulo Estado
+   ** M贸dulo Estado
    *****************************************
-   ? WaitKey(Hb_AnsiToOem("M骴ulo Estado"), Hb_AnsiToOem("listar todos os estados"))
+   ? WaitKey(Hb_AnsiToOem("M贸dulo Estado"), Hb_AnsiToOem("listar todos os estados"))
    cSendUrl    := cUrl + [/states/country/1058]
    hResponse   := Comunicate(cSendUrl)
    FOR EACH hForeach IN hResponse
-      ?  Hb_AnsiToOem("C骴igo: ") + LTrim(str(hForeach["code"]))            + " - "
+      ?  Hb_AnsiToOem("C贸digo: ") + LTrim(str(hForeach["code"]))            + " - "
       ?? Hb_AnsiToOem("Nome: ")   + hb_UTF8ToStr(LTrim(hForeach["name"]))   + " - "
-      ?? Hb_AnsiToOem("Pa韘: ")   + LTrim(str(hForeach["country_code"]))    + " - "
+      ?? Hb_AnsiToOem("Pa铆s: ")   + LTrim(str(hForeach["country_code"]))    + " - "
       ?? Hb_AnsiToOem("Sigla: ")  + LTrim(hForeach["initials"])
    NEXT
    
-   ? WaitKey(Hb_AnsiToOem("M骴ulo Estado"), Hb_AnsiToOem("retornar dados do estado 33"))
+   ? WaitKey(Hb_AnsiToOem("M贸dulo Estado"), Hb_AnsiToOem("retornar dados do estado 33"))
    cSendUrl    := cUrl + [/states/33]
    hResponse   := Comunicate(cSendUrl)
    FOR EACH hForeach IN hResponse
-      ?  Hb_AnsiToOem("C骴igo: ") + LTrim(str(hForeach["code"]))            + " - "
+      ?  Hb_AnsiToOem("C贸digo: ") + LTrim(str(hForeach["code"]))            + " - "
       ?? Hb_AnsiToOem("Nome: ")   + hb_UTF8ToStr(LTrim(hForeach["name"]))   + " - "
-      ?? Hb_AnsiToOem("Pa韘: ")   + LTrim(str(hForeach["country_code"]))    + " - "
+      ?? Hb_AnsiToOem("Pa铆s: ")   + LTrim(str(hForeach["country_code"]))    + " - "
       ?? Hb_AnsiToOem("Sigla: ")  + LTrim(hForeach["initials"])
    NEXT
 
    
    *****************************************
-   ** M骴ulo Cidade
+   ** M贸dulo Cidade
    *****************************************
-   ? WaitKey(Hb_AnsiToOem("M骴ulo Cidade"), Hb_AnsiToOem("listar todas as cidades"))
+   ? WaitKey(Hb_AnsiToOem("M贸dulo Cidade"), Hb_AnsiToOem("listar todas as cidades"))
    cSendUrl    := cUrl + [/cities]
    hResponse   := Comunicate(cSendUrl)
    FOR EACH hForeach IN hResponse
-      ?  Hb_AnsiToOem("C骴igo: ") + LTrim(str(hForeach["code"]))            + " - "
+      ?  Hb_AnsiToOem("C贸digo: ") + LTrim(str(hForeach["code"]))            + " - "
       ?? Hb_AnsiToOem("Nome: ")   + hb_UTF8ToStr(LTrim(hForeach["name"]))   + " - "
       ?? Hb_AnsiToOem("Estado: ") + LTrim(str(hForeach["state_code"]))
    NEXT
 
-   ? WaitKey(Hb_AnsiToOem("M骴ulo Cidade"), Hb_AnsiToOem("listar cidades do estado 52"))
+   ? WaitKey(Hb_AnsiToOem("M贸dulo Cidade"), Hb_AnsiToOem("listar cidades do estado 52"))
    cSendUrl    := cUrl + [/cities/state/52]
    hResponse   := Comunicate(cSendUrl)
    FOR EACH hForeach IN hResponse
-      ?  Hb_AnsiToOem("C骴igo: ") + LTrim(str(hForeach["code"]))            + " - "
+      ?  Hb_AnsiToOem("C贸digo: ") + LTrim(str(hForeach["code"]))            + " - "
       ?? Hb_AnsiToOem("Nome: ")   + hb_UTF8ToStr(LTrim(hForeach["name"]))   + " - "
       ?? Hb_AnsiToOem("Estado: ") + LTrim(str(hForeach["state_code"]))
    NEXT
 
-   ? WaitKey(Hb_AnsiToOem("M骴ulo Cidade"), Hb_AnsiToOem("retornar cidade 5221403"))
+   ? WaitKey(Hb_AnsiToOem("M贸dulo Cidade"), Hb_AnsiToOem("retornar cidade 5221403"))
    cSendUrl    := cUrl + [/cities/5221403]
    hResponse   := Comunicate(cSendUrl)
    FOR EACH hForeach IN hResponse
-      ?  Hb_AnsiToOem("C骴igo: ") + LTrim(str(hForeach["code"]))            + " - "
+      ?  Hb_AnsiToOem("C贸digo: ") + LTrim(str(hForeach["code"]))            + " - "
       ?? Hb_AnsiToOem("Nome: ")   + hb_UTF8ToStr(LTrim(hForeach["name"]))   + " - "
       ?? Hb_AnsiToOem("Estado: ") + LTrim(str(hForeach["state_code"]))
    NEXT
