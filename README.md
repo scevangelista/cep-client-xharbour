@@ -1,2 +1,4 @@
 # CEP-Cliente-xHarbour
-Cliente para a API de CEP em xHarbour
+Exemplo de uso da API de CEP escrito em xHarbour
+
+[Link da API](https://github.com/scevangelista/CEP)
